@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductResponseModel } from '../../models/productResponseModel';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
-import { response } from 'express';
 
 @Component({
   selector: 'app-product',
