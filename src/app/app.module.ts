@@ -10,6 +10,7 @@ import { NaviComponent } from './components/navi/navi.component';
 import { CategoryComponent } from './components/category/category.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { VatAddedPipe } from './pipes/vat-added.pipe';
     NaviComponent,
     CategoryComponent,
     TodoComponent,
-    VatAddedPipe
+    VatAddedPipe,
+    FilterPipePipe
   ],
   imports: [
     BrowserModule,
