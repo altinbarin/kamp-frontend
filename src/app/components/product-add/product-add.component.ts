@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
+import { response } from 'express';
 
 
 @Component({
@@ -29,13 +30,19 @@ ngOnInit(): void{
 
   add(){
     if(this.productAddForm.valid){
-      let productModule = Object.assign({},this.productAddForm.value) 
-      this.productService.add(productModule).subscribe(data=>{
-        console.log(data)
-        this.toastrService.success(data.message,"Başarılı")
-      },dataError=>{
-        console.log(dataError)
-        this.toastrService.error(dataError.error)
+      let productModel = Object.assign({},this.productAddForm.value) 
+      this.productService.add(productModel).subscribe(response=>{
+        this.toastrService.success(response.message,"Başarılı")
+      },responseError=>{
+
+        if(responseError.error.ValidationErrors.length>0){
+
+          for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
+
+            this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage,"Doğrulama hatası")
+
+          }
+        }
       })
     }
     else{
