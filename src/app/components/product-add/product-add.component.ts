@@ -35,7 +35,7 @@ ngOnInit(): void{
         this.toastrService.success(response.message,"Başarılı")
       },responseError=>{
 
-        if(responseError.error.ValidationErrors.length>0){
+        if(responseError.error && responseError.error.ValidationErrors && responseError.error.ValidationErrors.length > 0){
 
           for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
 

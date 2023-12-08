@@ -9,12 +9,12 @@ import { Category } from '../models/category';
 })
 export class CategoryService {
 
-  apiUrl = "https://localhost:7114/api/Category/getall"
+  apiUrl = "https://localhost:7114/api/"
 
   constructor(private httpClient: HttpClient) { }
 
   getCategories():Observable<ListResponseModel<Category>> {
-    return this.httpClient.get<ListResponseModel<Category>>(this.apiUrl)
+    return this.httpClient.get<ListResponseModel<Category>>(this.apiUrl + "Category/getall")
   }
 
 }
