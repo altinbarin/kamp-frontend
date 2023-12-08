@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
@@ -10,7 +10,7 @@ import { response } from 'express';
   templateUrl: './product-add.component.html',
   styleUrl: './product-add.component.css'
 })
-export class ProductAddComponent {
+export class ProductAddComponent implements OnInit {
 
 productAddForm: FormGroup;
 constructor(private formBuilder:FormBuilder,private productService:ProductService, private toastrService:ToastrService) {}
